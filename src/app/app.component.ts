@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, } from '@angular/core';
 import {JeopardyService } from './jeopardy.service';
 
 @Component({
@@ -37,6 +37,8 @@ export class AppComponent implements OnInit {
   } else if(this.userResponse != this.questionInfo.answer){
     this.playerTotalScore = this.playerTotalScore - this.questionInfo.value
   }
+  this.getDataFromService()
+  this.userResponse = "";
 
   }
 
