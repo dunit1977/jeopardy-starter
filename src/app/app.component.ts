@@ -10,10 +10,7 @@ export class AppComponent implements OnInit {
   title = 'Jeapordy Lite';
 
   questionInfo;
-  userResponse: string;
-  playerTotalScore = 0;
-
-  
+ 
 
   constructor(private jeopardyService: JeopardyService){}
 
@@ -30,26 +27,5 @@ export class AppComponent implements OnInit {
     this.getDataFromService()
   }
 
-
-  buttonClicked() {
-    if (this.userResponse == this.questionInfo.answer){
-      this.playerTotalScore = this.playerTotalScore + this.questionInfo.value
-  } else if(this.userResponse != this.questionInfo.answer){
-    this.playerTotalScore = this.playerTotalScore - this.questionInfo.value
-  }
-  this.getDataFromService()
-  this.userResponse = "";
-
-  }
-
-  getNextQuestion() {
-    this.jeopardyService.getQuestionInfo()
-      .subscribe(
-          questionInfo => {
-              this.questionInfo = questionInfo[0];
-          }
-      )
-            this.userResponse = "";
-      }
 }
 

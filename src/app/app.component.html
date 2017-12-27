@@ -11,11 +11,7 @@ The question point value: {{questionInfo?.value}}
 <br>
 The category: {{questionInfo?.category.title}}
 <br>
-<br>
-<div> 
-  Enter a Response to the Question: <input [(ngModel)]="userResponse" type="text">
-</div>
-<br>
+
 <br>
 <div *ngIf= "userResponse">
   <h1>Answer from game: {{questionInfo?.answer}}</h1>
@@ -25,17 +21,10 @@ The category: {{questionInfo?.category.title}}
 <div>Player Answer: {{userResponse}}</div>
 <br>
 <br>
-<div>Total Score: {{ playerTotalScore}}</div>
+<div>Total Score: {{ scoreKeeper.playerTotalScore }}</div>
 <br>
 <br>
-<div style="text-align:center">
-  <button (click)="buttonClicked()">Guess</button>
-</div>
-<br>
-<br>
-<br>
-<div style="text-align:center">
-  <button (click)="getNextQuestion()">Get Next Question</button>
-</div>
+
+<app-score-game #scoreKeeper (answerHasBeenScored)="getDataFromService()" [questionInfo]="questionInfo"></app-score-game>
 
 
